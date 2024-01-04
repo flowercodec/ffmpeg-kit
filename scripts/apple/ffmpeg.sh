@@ -410,7 +410,7 @@ done
 
 # SET ENABLE GPL FLAG WHEN REQUESTED
 if [ "$GPL_ENABLED" == "yes" ]; then
-  CONFIGURE_POSTFIX+=" --enable-gpl"
+  CONFIGURE_POSTFIX+=" --enable-gpl --enable-nonfree"
 fi
 
 # ALWAYS BUILD SHARED LIBRARIES

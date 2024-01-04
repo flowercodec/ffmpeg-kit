@@ -335,7 +335,7 @@ done
 
 # SET ENABLE GPL FLAG WHEN REQUESTED
 if [ "$GPL_ENABLED" == "yes" ]; then
-  CONFIGURE_POSTFIX+=" --enable-gpl"
+  CONFIGURE_POSTFIX+=" --enable-gpl --enable-nonfree"
 fi
 
 export LDFLAGS+=" -L${ANDROID_NDK_ROOT}/platforms/android-${API}/arch-${TOOLCHAIN_ARCH}/usr/lib"
