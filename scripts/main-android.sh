@@ -106,6 +106,11 @@ while [ ${#enabled_library_list[@]} -gt $completed ]; do
         run=1
       fi
       ;;
+    sdl)
+      if [[ $OK_cpu_features -eq 1 ]]; then
+        run=1
+      fi
+      ;;
     libvpx)
       if [[ $OK_cpu_features -eq 1 ]]; then
         run=1

@@ -209,6 +209,7 @@ for library in {0..61}; do
     sdl)
       CFLAGS+=" $(pkg-config --cflags sdl2 2>>"${BASEDIR}"/build.log)"
       LDFLAGS+=" $(pkg-config --libs --static sdl2 2>>"${BASEDIR}"/build.log)"
+      LDFLAGS+=" $(pkg-config --libs cpu-features 2>>"${BASEDIR}"/build.log)"
       CONFIGURE_POSTFIX+=" --enable-sdl2"
       ;;
     shine)
