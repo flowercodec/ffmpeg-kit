@@ -3,6 +3,8 @@
 # ALWAYS CLEAN THE PREVIOUS BUILD
 git clean -dfx 2>/dev/null 1>/dev/null
 
+echo "new sdl2 source copying place holder" > COPYING.txt
+
 # OVERRIDE SYSTEM PROCESSOR
 SYSTEM_PROCESSOR=""
 SYSTEM_LEVEL=21
