@@ -209,6 +209,7 @@ for library in {0..61}; do
     sdl)
       CFLAGS+=" $(pkg-config --cflags sdl2 2>>"${BASEDIR}"/build.log)"
       LDFLAGS+=" $(pkg-config --libs --static sdl2 2>>"${BASEDIR}"/build.log)"
+      LDFLAGS+=" $(pkg-config --libs cpu-features 2>>"${BASEDIR}"/build.log)"
       CONFIGURE_POSTFIX+=" --enable-sdl2"
       ;;
     shine)
@@ -335,7 +336,7 @@ done
 
 # SET ENABLE GPL FLAG WHEN REQUESTED
 if [ "$GPL_ENABLED" == "yes" ]; then
-  CONFIGURE_POSTFIX+=" --enable-gpl"
+  CONFIGURE_POSTFIX+=" --enable-gpl --enable-nonfree"
 fi
 
 export LDFLAGS+=" -L${ANDROID_NDK_ROOT}/platforms/android-${API}/arch-${TOOLCHAIN_ARCH}/usr/lib"
@@ -346,7 +347,7 @@ if [[ -n ${FFMPEG_KIT_LTS_BUILD} ]] && [[ ${API} -lt 18 ]]; then
 fi
 
 # ALWAYS BUILD SHARED LIBRARIES
-BUILD_LIBRARY_OPTIONS="--disable-static --enable-shared"
+BUILD_LIBRARY_OPTIONS="--enable-static --disable-shared"
 
 # OPTIMIZE FOR SPEED INSTEAD OF SIZE
 if [[ -z ${FFMPEG_KIT_OPTIMIZED_FOR_SPEED} ]]; then

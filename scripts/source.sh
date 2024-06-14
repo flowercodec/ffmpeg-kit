@@ -33,7 +33,7 @@ get_library_source() {
     ;;
   ffmpeg)
     SOURCE_REPO_URL="https://github.com/arthenica/FFmpeg"
-    SOURCE_ID="n6.0"
+    SOURCE_ID="n5.1.3"
     SOURCE_TYPE="TAG"
     ;;
   fontconfig)
@@ -197,8 +197,8 @@ get_library_source() {
     SOURCE_TYPE="TAG"
     ;;
   sdl)
-    SOURCE_REPO_URL="https://github.com/arthenica/SDL"
-    SOURCE_ID="release-2.0.8"
+    SOURCE_REPO_URL="https://github.com/libsdl-org/SDL"
+    SOURCE_ID="release-2.30.1"
     SOURCE_TYPE="TAG"
     ;;
   shine)
