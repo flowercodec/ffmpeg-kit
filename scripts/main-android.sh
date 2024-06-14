@@ -57,6 +57,7 @@ fi
 # BUILD ENABLED LIBRARIES AND THEIR DEPENDENCIES
 let completed=0
 while [ ${#enabled_library_list[@]} -gt $completed ]; do
+  echo "total ${#enabled_library_list[@]} $completed"
   for library in "${enabled_library_list[@]}"; do
     let run=0
     case $library in
@@ -102,6 +103,11 @@ while [ ${#enabled_library_list[@]} -gt $completed ]; do
       ;;
     libvorbis)
       if [[ $OK_libogg -eq 1 ]]; then
+        run=1
+      fi
+      ;;
+    sdl)
+      if [[ $OK_cpu_features -eq 1 ]]; then
         run=1
       fi
       ;;
@@ -159,6 +165,8 @@ while [ ${#enabled_library_list[@]} -gt $completed ]; do
       run=1
       ;;
     esac
+
+    echo "${library} run = ${run}"
 
     # DEFINE SOME FLAGS TO MANAGE DEPENDENCIES AND REBUILD OPTIONS
     BUILD_COMPLETED_FLAG=$(echo "OK_${library}" | sed "s/\-/\_/g")

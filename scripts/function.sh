@@ -1045,6 +1045,8 @@ set_library() {
     return
   fi
 
+  echo "set_library ${1} ${2}"
+
   case $1 in
   android-zlib | ios-zlib | linux-zlib | macos-zlib | tvos-zlib)
     ENABLED_LIBRARIES[LIBRARY_SYSTEM_ZLIB]=$2

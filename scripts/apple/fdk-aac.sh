@@ -3,8 +3,6 @@
 # ALWAYS CLEAN THE PREVIOUS BUILD
 git clean -dfx 2>/dev/null 1>/dev/null
 
-echo "new sdl2 source copying place holder" > COPYING.txt
-
 # OVERRIDE SYSTEM PROCESSOR
 PLATFORM=""
 case ${ARCH} in
@@ -23,10 +21,7 @@ esac
 
 # ios-cmake 目录与 ffmpeg-kit 目录平级
 
-mkdir build
-cd build
-
-cmake ../ -Wno-dev \
+cmake -Wno-dev \
  -G "Unix Makefiles" \
  -DCMAKE_TOOLCHAIN_FILE=../../../ios-cmake/ios.toolchain.cmake \
  -DPLATFORM="${PLATFORM}" \
@@ -39,8 +34,6 @@ make -j$(get_cpu_count) || return 1
 
 make install || return 1
 
-cd ..
-
 # CREATE PACKAGE CONFIG MANUALLY
 
-cp ${LIB_INSTALL_PREFIX}/lib/pkgconfig/sdl2.pc ${LIB_INSTALL_PREFIX}/../pkgconfig/sdl2.pc || return 1
+cp ${LIB_INSTALL_PREFIX}/lib/pkgconfig/fdk-aac.pc ${LIB_INSTALL_PREFIX}/../pkgconfig/fdk-aac.pc || return 1
